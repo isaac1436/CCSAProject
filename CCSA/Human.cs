@@ -6,35 +6,22 @@ using System.Threading.Tasks;
 
 namespace CCSA
 {
-    public interface AnswerQuestion
-    {
-        public void Answer();
-    }
+    public enum programmes { frontend,backend}
+    public enum frontend { Teus, Wed, Thurs}
 
-    public interface AskQuestion
-    {
-        public void Ask(string Description);
-    }
+    public enum backend { Mon, Teus, Thurs}
 
-    public interface AttendClass
+    public abstract class Human
     {
-        public void attend(string currDay);
-    }
+        public abstract void Answer();
 
-    public class Human
-    {
+        public abstract void Ask();
+
+        public Program? program { get; set; }
+
         public string Name { get; set; }
 
-        public string Description { get { return Description; } set { } }
 
-
-        public Human(string name, String Description)
-        {
-            this.Name = name;
-            this.Description = Description;
-        }
-
-      
     }
 }
 

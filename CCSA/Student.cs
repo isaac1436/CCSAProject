@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace CCSA
 {
-
-    public class Student : AnswerQuestion, AskQuestion
+    public class Student : Human
     {
-        public void Answer()
+        public override void Answer()
         {
             Console.WriteLine("The answer to the question is answer and additional resources can be found in your Nakov Book");
         }
 
-        public void Ask(string Desc)
+        public override void Ask()
         {
-            Desc = Desc.ToLower();
+            Console.Write("Would you like to ask a student or Facilitator: ");
+            string Desc = Console.ReadLine();
             if (Desc == "student")
             {
                 Console.WriteLine("Please answer the question");
@@ -27,12 +27,6 @@ namespace CCSA
                 Console.WriteLine("Please answer the question");
             }
         }
-
-        public Student(int choice)
-        {
-            string desc = Console.ReadLine();
-            if (choice == 1) { Ask(desc); }
-            if (choice == 2) { Answer(); }
-        }
+        
     }
 }

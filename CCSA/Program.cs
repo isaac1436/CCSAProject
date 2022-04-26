@@ -1,25 +1,48 @@
-﻿namespace CCSA{
-    public class CCSAclass
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CCSA
+{
+    public class Program
     {
-        static void Main()
+        bool @class=false;
+
+        public Program(programmes program, string Days)
         {
-            Human[] humans=new Human[10];
-
-            for (int i = 0; i < humans.Length; i++)
+            if (programmes.frontend == program)
             {
-                if (i < 5)
+                for (int i = 0; i < 3; i++)
                 {
-                    BackEnd cohorts = new BackEnd("monday");
-                    BackEnd cohorts2 = new BackEnd("wednesday");
+                    if (Days.Contains(((frontend)i).ToString()))
+                    {
+                        Console.WriteLine("\nThe facilitator will let you in shortly");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nYou're In!");
+                        @class = true;
+                    }
                 }
-                else
-                {
-                    FrontEnd cohorts = new FrontEnd("monday");
-                    FrontEnd cohorts2 = new FrontEnd("wednesday");
 
-                }
+                    if(@class==false) { Console.WriteLine("\nNo class Today"); }
             }
 
+            if (programmes.backend == program)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (Days.Contains(((backend)i).ToString()))
+                    {
+                        Console.WriteLine("\nThe facilitator will let you in shortly");
+                        Thread.Sleep(5000);
+                        Console.WriteLine("\nYou're in");
+                        @class = true;
+                    }
+                }
+
+                if (@class == false) { Console.WriteLine("\nNo class Today"); }
+            }
         }
     }
 }
